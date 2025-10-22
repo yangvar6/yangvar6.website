@@ -1,51 +1,77 @@
-//! # A website that just exists for now, no flexy / fancy things etc.
+//! # A website
+//! that just exists for now, no flexy / fancy things etc.
 //!
 //! - [x] bootstrap
-//! - [ ] [`thaw`] ui
+//! - [x] [`thaw`] ui
 //! - [x] vibecode old site to new one with some AI
-//! - [ ] simple css
+//! - [x] simple css
+//! - [x] complex tailwind
+//! - [ ] fork [`thaw`] ui into `/crates/thaw` and adapt to me if needed
 //! - [ ] glsl backgroung
-//! - [ ] link tree replacement with all links that are out there
+//! - [x] link tree replacement with all links that are out there
 //! - [ ] push to github pages
 
 #![allow(non_snake_case)]
 #![feature(cold_path)]
 
 use leptos::prelude::*;
+use thaw::*;
 
 mod circles;
 mod consts;
 mod glsl;
 
-/// WASM environment btw...
+/// WASM environment btw... (finally)
+///
+/// ## During development run next things in separete terminals:
+/// - watch tailwind updates
+///     - tailwindcss -i style/input.css -o style/output.css --optimize -m --watch
+/// - watch website updates
+///     - trunk serve --open
 fn main() {
-    leptos::mount::mount_to_body(App2)
+    leptos::mount::mount_to_body(|| {
+        view! {
+            <thaw::ConfigProvider>
+                <App />
+            </thaw::ConfigProvider>
+        }
+    })
 }
 
 #[component]
 fn App() -> impl IntoView {
-    let (count, set_count) = signal(0);
+    let clicked_log = move |_| {
+        leptos::logging::log!("clicked thaw button");
+    };
 
-    view! {
-        <main>
-            <h1>"Hello, world!"</h1>
-            <div>
-                <p>"This is a counter: "{count}</p>
-                <button on:click=move |_| set_count.set(count.get() + 1)>
-                    "+1"
-                </button>
-                <button on:click=move |_| set_count.set(count.get() - 1)>
-                    "-1"
-                </button>
-            </div>
-        </main>
-    }
-}
-
-#[component]
-fn App2() -> impl IntoView {
     view! {
         <>
+
+            <ButtonGroup >
+                <Button
+                    on:click=clicked_log>
+                    "Button!"
+                </Button>
+                <Button
+                    on:click=clicked_log>
+                    "Button!"
+                </Button>
+                <Button
+                    class="bg-red-500 hover:bg-red-600 text-white"
+                    on:click=move |_| {
+                        leptos::logging::log!("clicked special thaw button");
+                    }>
+                    "Special Button!"
+                </Button>
+            </ButtonGroup>
+
+
+            <Flex vertical=true>
+                <Button>"1"</Button>
+                <Button>"2"</Button>
+                <Button>"3"</Button>
+            </Flex>
+
             <section
                 class="flex flex-row w-full justify-center h-fit">
                 <div class="flex flex-col md:flex-row w-[90%] md:w-1/2 h-fit justify-between md:gap-[42px] gap-[6px] py-6">
@@ -59,6 +85,9 @@ fn App2() -> impl IntoView {
                     </div>
                     <div class="self-end">
                         <a >"Linkzz"</a>
+                    </div>
+                    <div class="self-end">
+                        <h1 class="jumbotron">"Hello, jumbotron!"</h1>
                     </div>
                 </div>
             </section>

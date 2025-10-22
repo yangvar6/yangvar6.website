@@ -1,4 +1,6 @@
 pub mod socials {
+    #![allow(dead_code)]
+
     pub const BLUE_SKY: &'static str = "https://bsky.app/profile/yangvar6.bsky.social";
     pub const GITHUB: &'static str = "https://github.com/yangvar6"; // is it a social media at all??
     pub const INSTAGRAM: &'static str = "https://www.instagram.com/yangvar6";

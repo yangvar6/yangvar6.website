@@ -5,7 +5,10 @@ edition = "2024"
 
 
 [dependencies]
-leptos = { version = "0.8.10", features = ["csr"] }
+# leptos = { version = "0.8.10", features = ["csr"] }
+# for thaw
+leptos = { version = "0.7.7", features = ["csr"] }
+thaw = { version = "0.4.8", features = ["csr"] }
 wasm-bindgen = "0.2"
 web-sys = { version = "0.3", features = [
     "WebGl2RenderingContext",
@@ -18,8 +21,16 @@ web-sys = { version = "0.3", features = [
 ] }
 js-sys = "0.3"
 console_error_panic_hook = "0.1"
-thaw = { version = "0.4.8", features = ["csr"] }
+# stylance = "0.7.1"
+
+
+# [[workspace.metadata.leptos]]
+# name = "yangvar6.com"
+# # bin-package = "server"
+# lib-package = "yangvar6dotcom"
 
 
 [profile.release]
 opt-level = "s"
+lto = true
+codegen-units = 1

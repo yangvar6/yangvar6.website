@@ -1,3 +1,6 @@
 #!/bin/bash
 
-trunk serve --open 
+tailwindcss -i style/input.css -o style/output.css --optimize -m --watch &
+trunk serve --open &
+
+wait
