@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+
+:root {
+    font-family: 'Montserrat', sans-serif, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+    min-width: 375px;
+    min-height: 100vh;
+    @apply flex flex-col items-center justify-between;
+    @apply overflow-x-hidden md:overflow-hidden;
+}
+
+
+h1 {
+    font-weight: 1000;
+}
+
+h2 {
+    font-weight: 600;
+    @apply text-[20px];
+}
+
+a {
+    @apply underline;
+    @apply hover:text-yellow-400 hover:cursor-pointer;
+}
+
+.a {
+    @apply underline;
+    @apply hover:text-yellow-400 hover:cursor-pointer;
+}
+
+p {
+    @apply text-gray-300;
+}
+
+.p_acc {
+    @apply text-yellow-600;
+}
+
+::selection {
+    background-color: orange;
+    color: black;
+}
+
+::-moz-selection {
+    background-color: orange;
+    color: black;
+}
+
+::-webkit-selection {
+    background-color: orange;
+    color: black;
+}
+
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+}

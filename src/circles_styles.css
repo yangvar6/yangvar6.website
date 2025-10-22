@@ -1,0 +1,41 @@
+.circles_styles_rotate_01 {
+    animation: rotateLinear 130s linear infinite;
+    animation-delay: -20s;
+}
+
+
+@keyframes rotateLinear {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+.circles_styles_bounce {
+    --bounce-offset-up: 20px;
+    --bounce-animation-delay: 0.0s;
+    --bounce-animation-cycle: 8.478s;
+
+    animation: bounceUpDown var(--bounce-animation-cycle) ease-in-out infinite;
+    animation-delay: var(--bounce-animation-delay);
+}
+
+@keyframes bounceUpDown {
+
+    0%,
+
+    100% {
+        transform: translateY(var(--bounce-offset-up));
+    }
+
+    50% {
+        transform: translateY(calc(var(--bounce-offset-up) * -1));
+    }
+}
