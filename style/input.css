@@ -23,8 +23,8 @@
 body {
     min-width: 375px;
     min-height: 100vh;
-    @apply flex flex-col items-center justify-between;
-    @apply overflow-x-hidden md:overflow-hidden;
+    /* @apply flex flex-col items-center justify-between;
+    @apply overflow-x-hidden md:overflow-hidden; */
 }
 
 
@@ -37,22 +37,25 @@ h2 {
     @apply text-[20px];
 }
 
-a {
+.a {
+    @apply text-white transition-colors ease-out duration-[1500ms];
+    @apply hover:cursor-pointer hover:text-yellow-400 hover:duration-0;
     @apply underline;
-    @apply hover:text-yellow-400 hover:cursor-pointer;
 }
 
-.a {
+a {
+    @apply text-white transition-colors ease-out duration-[1500ms];
+    @apply hover:cursor-pointer hover:text-yellow-400 hover:duration-0;
     @apply underline;
-    @apply hover:text-yellow-400 hover:cursor-pointer;
 }
+
 
 p {
-    @apply text-gray-300;
+    @apply text-white;
 }
 
 .p_acc {
-    @apply text-yellow-600;
+    @apply text-yellow-400;
 }
 
 ::selection {
@@ -76,10 +79,4 @@ p {
         color: #213547;
         background-color: #ffffff;
     }
-}
-
-.jumbotron {
-    font: red;
-    background-color: cyan;
-    @apply hover:text-yellow-400 hover:cursor-pointer;
 }

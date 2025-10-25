@@ -1,0 +1,8 @@
+[build]
+release = true             # Default false; enables release mode (can also use CLI flag)
+minify = "on_release"      # Minify HTML/JS/CSS in release for smaller bundle
+filehash = true            # Add hashes to filenames for caching (default true)
+
+# If you want to skip Trunk's built-in wasm-opt for manual control:
+# [build.extensions]
+# wasm-opt = false           # Not a standard field; use data-wasm-opt="false" in index.html instead

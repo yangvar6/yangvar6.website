@@ -1,0 +1,7 @@
+[build]
+# Fixes potential dependency issues with 'has_std' cfg
+rustflags = ["--cfg=has_std"]
+
+[target.wasm32-unknown-unknown]
+# Ensure panic=abort for WASM
+rustflags = ["-Cpanic=abort"]

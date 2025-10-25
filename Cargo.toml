@@ -5,10 +5,8 @@ edition = "2024"
 
 
 [dependencies]
-# leptos = { version = "0.8.10", features = ["csr"] }
-# for thaw
-leptos = { version = "0.7.7", features = ["csr"] }
-thaw = { version = "0.4.8", features = ["csr"] }
+leptos = { version = "0.8.10", features = ["csr", "nightly"] }
+leptos_router = { version = "0.8.9", features = ["nightly"] }
 wasm-bindgen = "0.2"
 web-sys = { version = "0.3", features = [
     "WebGl2RenderingContext",
@@ -21,7 +19,8 @@ web-sys = { version = "0.3", features = [
 ] }
 js-sys = "0.3"
 console_error_panic_hook = "0.1"
-# stylance = "0.7.1"
+chrono = "0.4.42"
+wee_alloc = "0.4.5"
 
 
 # [[workspace.metadata.leptos]]
@@ -31,6 +30,9 @@ console_error_panic_hook = "0.1"
 
 
 [profile.release]
-opt-level = "s"
-lto = true
-codegen-units = 1
+opt-level = "s"          # Aggressive size optimization ('s' is less aggressive but sometimes smaller; test both)
+lto = true               # Enable link-time optimization for inlining and dead code elimination
+codegen-units = 1        # Single codegen unit for better optimization (slower compile, smaller binary)
+panic = "abort"          # Abort on panic instead of unwinding (removes unwind code; requires nightly for full effect)
+strip = true             # Strip symbols from the binary
+debug = false            # No debug info
