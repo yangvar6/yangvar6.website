@@ -51,7 +51,7 @@ logok "Built project"
 
 # PUSH TO GITPAGES
 GITPAGES_FOLDER="D:/PR/yangvar6.github.io"
-FILES_TO_IGNORE=( "CNAME" ".gitignore"  "LICENSE"  "README.md" )
+FILES_TO_IGNORE=( "CNAME" ".gitignore"  "LICENSE"  "README.md" "push.sh")
 
 # delete all files in gitpages folder
 for file in $(ls "$GITPAGES_FOLDER"); do
@@ -71,16 +71,15 @@ logok "Copied files to gitpages folder"
 
 NEW_GIT_COMMIT_NAME="release-of $THIS_GIT_COMMIT_NAME"
 logok "New git commit name: $NEW_GIT_COMMIT_NAME"
+# logok "Push from repodirectly!!!"
 pushd "$GITPAGES_FOLDER"
+    git config user.name "Yan Dev"
+    git config user.email "yangvar6.media@gmail.com"
     run git add .
-    git remote add origin https://github.com/yangvar6/yangvar6.website.git
+    git remote add origin https://github.com/yangvar6/yangvar6.github.io.git
     run git commit -m "$NEW_GIT_COMMIT_NAME"
     git push -u origin main
 popd
 
 
-
-
-
-
-logok "Push completed!!!"
+logok "Build completed!!!"
