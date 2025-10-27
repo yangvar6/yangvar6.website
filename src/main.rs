@@ -330,7 +330,7 @@ fn MainPage() -> impl IntoView {
                     </div>
                     <div class="md:w-1/2 md:pl-8 flex flex-col gap-2">
                         <h2 class="text-3xl font-bold mb-4 text-yellow-400">"Yan B."</h2>
-                        <p class="">"\"What is a night without a dragon?\""</p>
+                        <p class="">"\"What is a knight without a dragon?\""</p>
                         <p class="text-yellow-500 text-center">"— Lord Sauron"</p>
                     </div>
                 </div>

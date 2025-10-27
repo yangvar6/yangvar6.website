@@ -77,8 +77,9 @@ pushd "$GITPAGES_FOLDER"
     git config user.email "yangvar6.media@gmail.com"
     run git add .
     git remote add origin https://github.com/yangvar6/yangvar6.github.io.git
+    git pull origin main
     run git commit -m "$NEW_GIT_COMMIT_NAME"
-    git push -u origin main
+    git push -u origin main --forcr
 popd
 
 

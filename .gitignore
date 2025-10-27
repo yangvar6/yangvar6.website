@@ -1,4 +1,5 @@
+.idea/
 .scripts/
-/target
 /dist
+/target
 expanden.rs
